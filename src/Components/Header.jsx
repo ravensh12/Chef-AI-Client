@@ -1,4 +1,4 @@
-import chefClaudeLogo from "/React-logo.jpeg"
+import chefClaudeLogo from "React-logo.jpeg"
 
 export default function Header() {
     return (
