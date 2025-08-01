@@ -4,7 +4,7 @@ export async function getRecipeFromMistral(ingredientsArr) {
     console.log("Attempting to get recipe from our backend with ingredients:", ingredientsArr);
 
     try {
-        const response = await fetch('http://localhost:3001/api/generate-recipe', {
+        const response = await fetch('https://chef-ai-server.onrender.com', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
