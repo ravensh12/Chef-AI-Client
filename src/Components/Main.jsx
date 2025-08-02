@@ -5,9 +5,7 @@ import ClaudeRecipe from "./ClaudeRecipe.jsx"
 import { getRecipeFromMistral } from "../ai.js"
 
 export default function Main() {
-    const [ingredients, setIngredients] = React.useState(
-        []
-    )
+    const [ingredients, setIngredients] = React.useState([])
     const [recipe, setRecipe] = React.useState("")
     const [isLoading, setIsLoading] = React.useState(false)
     const recipeSection = React.useRef(null)
@@ -35,8 +33,9 @@ export default function Main() {
     }
 
     function addIngredient(formData) {
-        const newIngredient = formData.get("ingredient")
-        setIngredients(prevIngredients => [...prevIngredients, newIngredient])
+        const newIngredient = formData.get("ingredient")?.trim();
+        if (!newIngredient) return; // Ignore empty or whitespace-only input
+        setIngredients(prevIngredients => [...prevIngredients, newIngredient]);
     }
     
     function clearIngredients() {
@@ -46,6 +45,28 @@ export default function Main() {
 
     return (
         <main>
+            {/* --- DESCRIPTION BOX START --- */}
+            <div
+                style={{
+                    background: "#f9f7f2",
+                    border: "1px solid #ece5da",
+                    borderRadius: "8px",
+                    padding: "1.2rem 1.5rem",
+                    margin: "2rem auto 2.5rem auto",
+                    maxWidth: "600px",
+                    color: "#333",
+                    fontSize: "1.1rem",
+                    boxShadow: "0 2px 8px 0 #00000012"
+                }}
+            >
+                <strong>Chef AI 🍳</strong> helps you turn the ingredients you have at home into delicious, AI-powered recipe ideas.
+                <br />
+                <span style={{ color: "#555", fontSize: "0.98em" }}>
+                    Just enter what you have in your kitchen and let Chef AI recommend a creative recipe for you!
+                </span>
+            </div>
+            {/* --- DESCRIPTION BOX END --- */}
+
             <form action={addIngredient} className="add-ingredient-form">
                 <input
                     type="text"
