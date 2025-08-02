@@ -3,6 +3,7 @@ import React from "react"
 import IngredientsList from "./IngredientsList.jsx"
 import ClaudeRecipe from "./ClaudeRecipe.jsx"
 import { getRecipeFromMistral } from "../ai.js"
+import shravanPic from "../assets/shravan.jpeg";
 
 export default function Main() {
     const [ingredients, setIngredients] = React.useState([])
@@ -44,6 +45,7 @@ export default function Main() {
     }
 
     return (
+    <>
         <main>
             {/* --- DESCRIPTION BOX START --- */}
             <div
@@ -104,5 +106,44 @@ export default function Main() {
 
             {recipe && <ClaudeRecipe recipe={recipe} />}
         </main>
-    )
+        
+        {/* --- CREATOR BOX FLOATING --- */}
+            <div
+        style={{
+            position: "fixed",
+            top: 650,
+            right: 36,
+            background: "#fffdfa",
+            border: "1.5px solid #f2e6d7",
+            borderRadius: "12px",
+            boxShadow: "0 6px 18px 0 #00000017",
+            padding: "1.1rem 2.1rem",
+            display: "flex",
+            alignItems: "center",
+            minWidth: "270px",
+            zIndex: 999,
+            fontSize: "1.08rem"
+        }}
+    >
+        <img
+            src={shravanPic}
+            alt="Shravan Venkat"
+            style={{
+                width: 64,
+                height: 64,
+                objectFit: "cover",
+                marginRight: 16,
+                border: "2px solid #eee5d8",
+                background: "#fff"
+                // No borderRadius, so image is square
+            }}
+        />
+        <div>
+            <div style={{ fontWeight: 700, fontSize: "1.09rem", marginBottom: 2 }}>Creator:</div>
+            <div style={{ fontWeight: 500, fontSize: "1.04rem", color: "#43360c" }}>Shravan Venkat</div>
+        </div>
+    </div>
+        {/* --- END CREATOR BOX --- */}
+    </>
+)
 }
