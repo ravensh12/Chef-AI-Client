@@ -49,24 +49,27 @@ export default function Main() {
         <main>
             {/* --- DESCRIPTION BOX START --- */}
             <div
-                style={{
-                    background: "#f9f7f2",
-                    border: "1px solid #ece5da",
-                    borderRadius: "8px",
-                    padding: "1.2rem 1.5rem",
-                    margin: "2rem auto 2.5rem auto",
-                    maxWidth: "600px",
-                    color: "#333",
-                    fontSize: "1.1rem",
-                    boxShadow: "0 2px 8px 0 #00000012"
-                }}
-            >
-                <strong>Chef AI 🍳</strong> helps you turn the ingredients you have at home into delicious, AI-powered recipe ideas.
-                <br />
-                <span style={{ color: "#555", fontSize: "0.98em" }}>
-                    Just enter what you have in your kitchen and let Chef AI recommend a creative recipe for you!
-                </span>
-            </div>
+    style={{
+        background: "#f9f7f2",
+        border: "1px solid #ece5da",
+        borderRadius: "8px",
+        padding: "1.2rem 1.5rem",
+        margin: "2rem auto 2.5rem auto",
+        maxWidth: "600px",
+        color: "#333",
+        fontSize: "1.1rem",
+        boxShadow: "0 2px 8px 0 #00000012"
+    }}
+>
+    <strong>Chef AI 🍳</strong> helps you turn the ingredients you have at home into delicious, AI-powered recipe ideas.
+    <br />
+    <span style={{ color: "#555", fontSize: "0.98em" }}>
+        Just enter what you have in your kitchen and let Chef AI recommend a creative recipe for you!
+        <br />
+        <span style={{ color: "#c62d08", fontWeight: 600 }}>Please add at least 4 ingredients for best results.</span>
+    </span>
+</div>
+
             {/* --- DESCRIPTION BOX END --- */}
 
             <form action={addIngredient} className="add-ingredient-form">
@@ -109,40 +112,41 @@ export default function Main() {
         
         {/* --- CREATOR BOX FLOATING --- */}
             <div
+    style={{
+        position: "fixed",
+        left: "50%",
+        bottom: 16,
+        transform: "translateX(-50%)",
+        padding: "14px 22px",
+        background: "#fafbfc",
+        border: "1px solid #ececec",
+        borderRadius: 14,
+        boxShadow: "0 2px 8px rgba(0,0,0,0.09)",
+        zIndex: 999,
+        display: "flex",
+        alignItems: "center",
+        minWidth: 180,
+        maxWidth: "90vw",
+        fontSize: "1rem"
+    }}
+>
+    <img
+        src={shravanPic}
+        alt="Shravan Venkat"
         style={{
-            position: "fixed",
-            top: 650,
-            right: 36,
-            background: "#fffdfa",
-            border: "1.5px solid #f2e6d7",
-            borderRadius: "12px",
-            boxShadow: "0 6px 18px 0 #00000017",
-            padding: "1.1rem 2.1rem",
-            display: "flex",
-            alignItems: "center",
-            minWidth: "270px",
-            zIndex: 999,
-            fontSize: "1.08rem"
+            width: 44,
+            height: 44,
+            objectFit: "cover",
+            marginRight: 13,
+            border: "1px solid #e4e4e4",
+            background: "#fff"
         }}
-    >
-        <img
-            src={shravanPic}
-            alt="Shravan Venkat"
-            style={{
-                width: 64,
-                height: 64,
-                objectFit: "cover",
-                marginRight: 16,
-                border: "2px solid #eee5d8",
-                background: "#fff"
-                // No borderRadius, so image is square
-            }}
-        />
-        <div>
-            <div style={{ fontWeight: 700, fontSize: "1.09rem", marginBottom: 2 }}>Creator:</div>
-            <div style={{ fontWeight: 500, fontSize: "1.04rem", color: "#43360c" }}>Shravan Venkat</div>
-        </div>
+    />
+    <div style={{ display: "flex", flexDirection: "column", alignItems: "start" }}>
+        <span style={{ fontWeight: 600, fontSize: 13, color: "#585858" }}>Creator:</span>
+        <span style={{ fontWeight: 500, fontSize: 16, color: "#222" }}>Shravan Venkat</span>
     </div>
+</div>
         {/* --- END CREATOR BOX --- */}
     </>
 )
